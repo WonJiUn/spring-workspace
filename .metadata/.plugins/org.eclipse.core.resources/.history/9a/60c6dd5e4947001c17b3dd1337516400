@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	function getUsers(){
+		$.ajax({
+			url: "users", type: "get", dataType: "json",
+			success : function(list){
+				//$("#users").text(list)
+				/*
+				console.log(list)
+				let html = "<b>아이디 : </b>" + list[0].name+"님<br>"
+				html += "<b>나이 : </b>" + list[0].age + "살<hr>"
+				
+				html += "<b>아이디 : </b>" + list[1].name+"님<br>"
+				html += "<b>나이 : </b>" + list[1].age + "살<hr>"
+				*/
+				let html= ""
+				/*
+				for(var i = 0; i<list.length; i++){
+					html += "<b>아이디 : </b>" + list[i].name+"님<br>"
+					html += "<b>나이 : </b>" + list[i].age + "살<hr>"
+				}
+				*/
+				$.each(list, function(index, item){
+					html += "<b>아이디 : </b>" + item.name+"님<br>"
+					html += "<b>나이 : </b>" + item.age + "살<hr>"
+				})
+				//$("#users").html(html)	//내용을 html로 전부 바꿔줌
+				$("#users").append(html)	//밑에 이어붙여줌
+			}
+		})
+	}
+	function userInfo(){
+		var userId = $("#userId").val()
+		$.ajax({
+			url : "user?id" + userId,
+			type : "get", 
+			dataType: "json",
+			success : function(dto){
+				console.log(dto)
+				let html = "<b>이름 : </b>" + dto.name+"님<br>"
+				html += "<b>나이 : </b>" + dto.age + "살<hr>"
+				$("#users").html(html)
+			}
+		})
+	}
+</script>
+
+</head>
+<body>getuser.jsp<br>
+	<span id="users"></span>
+	<hr>
+	<button type="button" onclick="getUsers()">사용자 목록 보기</button>
+	<hr>
+	<input type="text" id="userId">
+	<button type="button" onclick="userInfo()">개인 정보 보기</button>
+</body>
+</html>

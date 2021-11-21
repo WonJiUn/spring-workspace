@@ -1,0 +1,11 @@
+package com.care.root.board.dto;
+
+public class BoardDTO {
+	private int writeNo;
+	private String title;
+	private String content;
+	private String saveDate;
+	private int hit;
+	private String imageFileName;
+	private String id;
+}

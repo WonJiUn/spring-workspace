@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+<context:property-placeholder location="classpath:print.properties"/>
+
+	<bean id="st01" class="com.care.root02.Student"/>
+	<bean id="stb" class="com.care.root02.STBean">
+		<property name="st" ref="st01"/>
+		<!-- stb의 세터에 st01을 넣음 -->
+		<property name="name">
+			<value>${print.name}</value>
+			<!-- 하단 Namespaces에서 context체크후 위의 경로를 작성하면 외부파일의 값을 읽어올 수 있다 -->
+		</property>
+		<property name="age" value="2222"/>
+	</bean>
+</beans>

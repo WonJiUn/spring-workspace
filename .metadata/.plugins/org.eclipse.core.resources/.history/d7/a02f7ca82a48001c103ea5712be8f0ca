@@ -1,0 +1,9 @@
+package com.care.root.board.service;
+
+import javax.servlet.http.HttpServletRequest;
+
+public interface BoardFileService {
+	public static final String IMAGE_REPO = "C:/spring/image_repo";
+	public String getMessage(int num, HttpServletRequest request);
+	public String saveFile(file)
+}

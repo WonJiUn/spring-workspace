@@ -1,0 +1,19 @@
+package com.care.root.service;
+
+import javax.mail.internet.MimeMessage;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MailService {
+	@Autowired JavaMailSender mailSender;	//아까 MailConfig.java에 만든 bean
+	
+	public void sendMail(String to, String subject, String body) {
+		MimeMessage message = mailSender.createMimeMessage();
+		//message에 저장한 내용을 mailSender(구글메일)로 보냄
+		
+		
+	}
+}

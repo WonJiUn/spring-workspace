@@ -1,0 +1,8 @@
+package com.care.root.config;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class FileConfig {
+//설정하는 내용에 넣어주는 어노테이션
+}

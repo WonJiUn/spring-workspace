@@ -1,0 +1,38 @@
+package com.care.root.service;
+
+import javax.mail.internet.MimeMessage;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Service
+public class MailService {
+	@Autowired JavaMailSender mailSender;	//아까 MailConfig.java에 만든 bean
+	
+	public void sendMail(String to, String subject, String body) {
+		MimeMessage message = mailSender.createMimeMessage();
+		//message에 저장한 내용을 mailSender(구글메일)로 보냄
+		
+		try {
+			MimeMessageHelper helper = new MimeMessageHelper(message,true,"UTF-8");
+			helper.setTo(to);
+			helper.setSubject(subject);
+			helper.setText(body, true);
+			//true는 HTML형식으로 넘길 때 필요한 옵션
+			
+			mailSender.send(message);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@GetMapping("auth_form")
+	public String authForm() {
+		return "auth";
+	}
+}

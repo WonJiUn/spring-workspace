@@ -1,0 +1,64 @@
+package com.care.root.board.dto;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
+public class BoardDTO {
+	private int writeNo;
+	private String title;
+	private String content;
+	private String saveDate;
+	private int hit;
+	private String imageFileName;
+	private String id;
+	public int getWriteNo() {
+		return writeNo;
+	}
+	public void setWriteNo(int writeNo) {
+		this.writeNo = writeNo;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getSaveDate() {
+		return saveDate;
+	}
+	/*
+	public void setSaveDate(String saveDate) {
+		this.saveDate = saveDate;
+		//데이터베이스에서 그냥 받아오면 맨 끝에 .0이 붙기 때문에 포맷을 바꿔줘야함
+	}
+	*/
+	public void setSaveDate(Timestamp saveDate) {
+		SimpleDateFormat fo = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+		this.saveDate = fo.format(saveDate);
+	}
+	
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+	public String getImageFileName() {
+		return imageFileName;
+	}
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+}

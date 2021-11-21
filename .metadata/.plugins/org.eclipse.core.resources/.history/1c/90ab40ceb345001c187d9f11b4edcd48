@@ -1,0 +1,8 @@
+package com.care.root.service;
+
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+public interface FileService {
+	public static final String IMG_REPO = "C:/spring/image_repo";
+	public void fileProcess(MultipartHttpServletRequest mul);
+}

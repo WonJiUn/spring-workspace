@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	function ajax(){
+		var n = $("#name").val();
+		var a = document.getElementById("age").value;
+		var form = { age:a, name:n }
+		console.log(form)
+		$.ajax({
+			url : "ajax_result01",
+			type : "POST",
+			data : JSON.stringify(form),
+			dataType : "json",
+			contentType : "application/json; charset=utf-8",
+			success : function(result){
+				$("#label").text(result.name + ":"result.age)
+			}, error : function(){ alert("문제 발생") }
+			
+		})
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="name"><br>
+	<input type="text" id="age"><br>
+	<input type="button" onclick="ajax()" value="저장">
+	<hr> 결과 : <label id="label"></label>
+</body>
+</html>

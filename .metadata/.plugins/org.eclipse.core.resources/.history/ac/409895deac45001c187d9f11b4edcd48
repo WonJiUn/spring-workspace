@@ -1,0 +1,9 @@
+package com.care.root.config;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class FileConfig {
+//servlet-context.xml에 있는 경로 하위에 있는 어노테이션을 봄
+//설정하는 내용에 넣어주는 어노테이션
+}

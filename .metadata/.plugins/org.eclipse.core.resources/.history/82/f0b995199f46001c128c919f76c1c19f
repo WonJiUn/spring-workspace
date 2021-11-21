@@ -1,0 +1,6 @@
+package com.care.root;
+
+public class InfoDTO {
+	private String name;
+	private int age;
+}

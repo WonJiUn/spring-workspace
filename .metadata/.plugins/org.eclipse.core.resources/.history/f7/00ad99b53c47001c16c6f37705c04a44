@@ -1,0 +1,20 @@
+package com.care.root;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class TestController {
+//데이터를 돌려주는 기능(@ResponseBody) 전용으로 사용하는 컨트롤러
+//post : 데이터를 추가할때 사용함(회원가입, 게시글 등록)
+//get : 데이터를 요청할때
+//put : 업데이트할때(수정할때)
+//delete : 삭제할때
+	
+	@GetMapping(value="rest", produces = "application/json;charset=utf-8")
+	public String get() {
+		return "{ \"execute\" : \"get 데이터 요청할때 사용\" }";
+	}
+	
+	
+}

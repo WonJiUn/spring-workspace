@@ -1,0 +1,37 @@
+package com.care.root.controller;
+
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.care.root.service.MailService;
+
+@Controller
+public class MailController {
+	@Autowired MailService ms;
+	
+	@GetMapping("sendmail")
+	public void sendMail(HttpServletResponse response) throws Exception {
+		
+		StringBuffer sb = new StringBuffer();
+		sb.append("<h1>제품소개</h1>");
+		sb.append("<a href=\"https://www.naver.com/\">");
+		sb.append("<img src=\"https://search.pstatic.net/sunny/?src=https%3A%2F%2Fimage.utoimage.com%2Fpreview%2Fcp952602%2F2021%2F05%2F202105018297_500.jpg&type=a340\">\r\n");
+		sb.append("</a>");
+		
+		String msg = sb.toString();
+		
+		ms.sendMail("sallyjelly2@naver.com", "(제목)광고", msg);
+		
+		//ms.sendMail("sallyjelly2@naver.com", "(제목)테스트 메일", "(내용)안녕하세요");
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.print("메일이 전송되었습니다");
+		
+	}
+}

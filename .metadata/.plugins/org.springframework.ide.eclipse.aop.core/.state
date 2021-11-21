@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="ajax_day12"/>
+<aop-project name="mvc_quiz"/>
+<aop-project name="cookie_session_day05"/>
+<aop-project name="di"/>
+<aop-project name="mvc_day03"/>
+<aop-project name="file_email_day11"/>
+<aop-project name="mvc"/>
+<aop-project name="mybatis_junit_day06"/>
+<aop-project name="s_project"/>
+<aop-project name="s_project_day10"/>
+<aop-project name="mvc_quiz_day04"/>
+</aop-reference-model>

@@ -1,0 +1,11 @@
+package com.care.root.mybatis.board;
+
+import java.util.List;
+
+import com.care.root.board.dto.BoardDTO;
+
+public interface BoardMapper {
+	public List<BoardDTO> selectAllBoardList();
+	public int writeSave(BoardDTO dto);
+	//문제없이 저장되면 1이 돌아오고 실패시 0이 돌아옴
+}
